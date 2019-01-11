@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: "create-account-table"
+      author: "kovalskiy91"
+      changes:
+        - createTable:
+            tableName: account
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: email
+                  type: text
+                  constraints:
+                    nullable: false
+                    unique: true
