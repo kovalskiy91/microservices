@@ -1,5 +1,21 @@
 version: "3"
 services:
+  prometheus:
+    image: "prom/prometheus"
+    ports:
+      - "9090:9090"
+    network_mode: "host"
+    volumes:
+      - "./prometheus:/etc/prometheus/"
+
+  grafana:
+    image: "grafana/grafana"
+    ports:
+      - "3000:3000"
+    network_mode: "host"
+    depends_on:
+      - prometheus
+
   db-admin:
     image: "dpage/pgadmin4"
     ports:
@@ -7,6 +23,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: "postgres@postgres.com"
       PGADMIN_DEFAULT_PASSWORD: "admin"
+
   db-api-gateway:
     image: "postgres:11.1"
     ports:

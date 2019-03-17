@@ -19,7 +19,9 @@ database:
 management:
   endpoints:
     enabled-by-default: "false"
-    web.exposure.include: health, metrics
+    web.exposure.include: "prometheus"
   endpoint:
-    health.enabled: "true"
-    metrics.enabled: "true"
+    prometheus.enabled: "true"
+
+server:
+  port: 8080
