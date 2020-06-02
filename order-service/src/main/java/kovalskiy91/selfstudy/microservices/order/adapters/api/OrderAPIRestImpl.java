@@ -26,6 +26,7 @@ public class OrderAPIRestImpl {
         Span placeOrder = tracer.buildSpan("placeOrder")
                 .start()
                 .setBaggageItem("command", new ObjectMapper().writeValueAsString(command));
+        tracer.scopeManager().activate(placeOrder);
         OrderPlacedEvent orderPlacedEvent = placeOrderAPI.placeOrder(command);
         placeOrder.finish();
         return orderPlacedEvent;
