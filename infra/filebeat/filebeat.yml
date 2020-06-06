@@ -1,0 +1,21 @@
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+processors:
+  - add_docker_metadata: ~
+
+setup:
+  dashboards.enabled: true
+  kibana.host: '${KIBANA_HOST:http://kibana:5601}'
+
+filebeat.inputs:
+  - type: docker
+    containers.ids:
+      - 'f9cf1d22ad28acb643d662ae4fb330edc14881ec075ebb27f5aac5ba894e922b'
+
+output.elasticsearch:
+  hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
+  username: '${ELASTICSEARCH_USERNAME:}'
+  password: '${ELASTICSEARCH_PASSWORD:}'
