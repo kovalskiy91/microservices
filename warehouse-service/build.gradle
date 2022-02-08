@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.3.0.RELEASE'
+        springBootVersion = '2.6.3'
     }
     repositories {
         mavenCentral()
@@ -26,15 +26,10 @@ repositories {
 dependencies {
     //spring
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    //database
-//    implementation 'org.liquibase:liquibase-core:3.6.2'
-//    implementation 'org.postgresql:postgresql:42.2.5'
-
     //code generation
-    compileOnly 'org.projectlombok:lombok:1.18.4'
-    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
 }
 

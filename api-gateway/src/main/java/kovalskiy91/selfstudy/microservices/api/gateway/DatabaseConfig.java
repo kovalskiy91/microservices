@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Primary;
 import javax.sql.DataSource;
 
 @Configuration
-public class DataBaseConfiguration {
+public class DatabaseConfig {
 
     @Bean
     @ConfigurationProperties(prefix = "database.datasource.primary")
